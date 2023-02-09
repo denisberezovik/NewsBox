@@ -28,7 +28,6 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Lifecycle
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -122,8 +121,6 @@ final class HomeViewController: UIViewController {
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        
     }
 }
 
@@ -180,7 +177,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true)
     }
-    
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -212,5 +208,4 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
            return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
         }
-    
 }
