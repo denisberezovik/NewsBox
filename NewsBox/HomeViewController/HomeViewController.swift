@@ -22,6 +22,7 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Subviews
     
+    private var pullControl = UIRefreshControl()
     private let appIcon = UIImageView()
     private var tableView = UITableView()
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -39,6 +40,7 @@ final class HomeViewController: UIViewController {
     
     private func setup() {
         configureAppIcon()
+        configurePullControl()
         configureTableView()
         configureCollectionView()
         setTableViewDelegates()
@@ -75,11 +77,22 @@ final class HomeViewController: UIViewController {
         appIcon.contentMode = .scaleAspectFit
     }
     
+    private func configurePullControl() {
+        pullControl.attributedTitle = NSAttributedString(string: "Loading News Data")
+        pullControl.backgroundColor = .clear
+        pullControl.tintColor = .black
+        pullControl.addTarget(self, action: #selector(refreshNewsData(_:)), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = pullControl
+        } else {
+            tableView.addSubview(pullControl)
+        }
+    }
+    
     private func configureTableView() {
         view.addSubview(tableView)
         tableView.backgroundColor = whiteMainColor
         tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
-        
     }
     
     private func configureCollectionView() {
@@ -121,6 +134,12 @@ final class HomeViewController: UIViewController {
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    @objc private func refreshNewsData(_ sender: Any) {
+        loadNewsByCategory()
+        tableView.reloadData()
+        self.pullControl.endRefreshing() // You can stop after API Call
     }
 }
 
@@ -206,6 +225,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-           return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        }
+        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+    }
 }
