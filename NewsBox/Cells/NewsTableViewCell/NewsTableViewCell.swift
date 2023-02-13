@@ -85,7 +85,8 @@ class NewsTableViewCell: UITableViewCell {
         self.descriptionLabel.text = model.articleDescription
         self.sourceLabel.text = model.source?.name
         
-        downloaded(from: model.urlToImage ?? "")
+        self.newsImageView.downloadImageFrom(model.urlToImage)
+        //        downloaded(from: model.urlToImage ?? "")
     }
     
         override func prepareForReuse() {
@@ -133,26 +134,26 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     
-    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFill) {
-        aIndicator.startAnimating()
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-            else { return }
-            DispatchQueue.main.async() { [weak self] in
-                self?.newsImageView.image = image
-                self?.aIndicator.stopAnimating()
-            }
-        }.resume()
-    }
+//    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFill) {
+//        aIndicator.startAnimating()
+//        URLSession.shared.dataTask(with: url) { data, response, error in
+//            guard
+//                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+//                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+//                let data = data, error == nil,
+//                let image = UIImage(data: data)
+//            else { return }
+//            DispatchQueue.main.async() { [weak self] in
+//                self?.newsImageView.image = image
+//                self?.aIndicator.stopAnimating()
+//            }
+//        }.resume()
+//    }
     
-    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFill) {
-        guard let url = URL(string: link) else { return }
-        downloaded(from: url, contentMode: mode)
-    }
+//    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFill) {
+//        guard let url = URL(string: link) else { return }
+//        downloaded(from: url, contentMode: mode)
+//    }
     
     @objc func menuButtonDidTapped() {
         print("Menu tapped")

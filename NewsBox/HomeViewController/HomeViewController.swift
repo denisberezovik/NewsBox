@@ -19,6 +19,7 @@ final class HomeViewController: UIViewController {
     private let layout = UICollectionViewFlowLayout()
     
     private var selectedCategory = ""
+    private var selectedIndex = Int()
     
     // MARK: - Subviews
     
@@ -73,7 +74,7 @@ final class HomeViewController: UIViewController {
     
     private func configureAppIcon() {
         view.addSubview(appIcon)
-        appIcon.image = UIImage(named: "logoHorizontal")
+        appIcon.image = UIImage(named: "logo_horizontal")
         appIcon.contentMode = .scaleAspectFit
     }
     
@@ -207,17 +208,27 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as! CategoryCollectionViewCell
+        
+        if selectedIndex == indexPath.row
+        {
+            cell.categoryLabel.backgroundColor = mainTextBlackColor
+            cell.categoryLabel.textColor = whiteMainColor
+        } else {
+            cell.categoryLabel.backgroundColor = lightGreyTextColor
+            cell.categoryLabel.textColor = categoryNameTextColor
+        }
+        
         let category = category[indexPath.row]
         cell.configureCell(category: category)
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as! CategoryCollectionViewCell
+        selectedIndex = indexPath.row
         selectedCategory = category[indexPath.row]
+        collectionView.reloadData()
         loadNewsByCategory()
-        print(selectedCategory)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

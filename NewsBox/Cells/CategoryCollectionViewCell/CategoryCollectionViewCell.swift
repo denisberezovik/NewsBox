@@ -12,7 +12,7 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     
     static var identifier = "CategoryCollectionViewCell"
-    
+        
     // MARK: - Subviews
     
     let categoryLabel = UILabel()
@@ -37,8 +37,6 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
         
         addSubview(categoryLabel)
         
-        categoryLabel.textColor = .white
-        categoryLabel.backgroundColor = .black
         categoryLabel.textAlignment = .center
         categoryLabel.font = .systemFont(ofSize: 14.0)
         categoryLabel.adjustsFontSizeToFitWidth = true
@@ -52,5 +50,7 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
     
     func configureCell(category: String) {
         self.categoryLabel.text = category
+        
     }
+    
 }
