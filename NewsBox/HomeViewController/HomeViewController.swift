@@ -12,7 +12,7 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var category = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
+    private var category = ["general", "business", "technology", "sports", "entertainment", "health", "science"]
     private var articles: [Article] = []
     private var networkManager = NetworkManager()
     
@@ -20,6 +20,7 @@ final class HomeViewController: UIViewController {
     
     private var selectedCategory = ""
     private var selectedIndex = Int()
+    private var currentPage = 1
     
     // MARK: - Subviews
     
@@ -54,6 +55,20 @@ final class HomeViewController: UIViewController {
         networkManager.loadTopHeadlines { [weak self] news in
             if let news = news {
                 self?.articles = news.articles ?? []
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func loadMoreData() {
+        
+        currentPage += 1
+        
+        networkManager.getPageData(page: currentPage) { [weak self] model in
+            if let model = model {
+                self?.articles += model.articles ?? []
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
@@ -197,6 +212,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        tableView.addLoading(indexPath) {
+            self.loadMoreData()
+        }
+        tableView.stopLoading()
+    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -237,5 +260,55 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+    }
+}
+
+
+extension UITableView {
+    
+    func indicatorView() -> UIActivityIndicatorView{
+        var activityIndicatorView = UIActivityIndicatorView()
+        if self.tableFooterView == nil {
+            let indicatorFrame = CGRect(x: 0, y: 0, width: self.bounds.width, height: 80)
+            activityIndicatorView = UIActivityIndicatorView(frame: indicatorFrame)
+            activityIndicatorView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+            
+            if #available(iOS 13.0, *) {
+                activityIndicatorView.style = .large
+            } else {
+                // Fallback on earlier versions
+                activityIndicatorView.style = .gray
+            }
+            
+            activityIndicatorView.color = .black
+            activityIndicatorView.hidesWhenStopped = true
+            
+            self.tableFooterView = activityIndicatorView
+            return activityIndicatorView
+        }
+        else {
+            return activityIndicatorView
+        }
+    }
+    
+    func addLoading(_ indexPath:IndexPath, closure: @escaping (() -> Void)){
+        indicatorView().startAnimating()
+        if let lastVisibleIndexPath = self.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath && indexPath.row == self.numberOfRows(inSection: 0) - 1 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    closure()
+                }
+            }
+        }
+    }
+    
+    func stopLoading() {
+        if self.tableFooterView != nil {
+            self.indicatorView().stopAnimating()
+            self.tableFooterView = nil
+        }
+        else {
+            self.tableFooterView = nil
+        }
     }
 }
