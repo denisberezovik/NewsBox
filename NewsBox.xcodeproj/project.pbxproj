@@ -18,6 +18,11 @@
 		F573C65F29805034005B4471 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F573C65E29805034005B4471 /* NetworkManager.swift */; };
 		F573C66129817B7F005B4471 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F573C66029817B7F005B4471 /* CategoryCollectionViewCell.swift */; };
 		F590820E299A588900CC9980 /* ImageStore+UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F590820D299A588900CC9980 /* ImageStore+UIImageExtension.swift */; };
+		F5A306B3299B981500ED03DE /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A306B2299B981400ED03DE /* AuthorizationViewController.swift */; };
+		F5A306B8299BA93000ED03DE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A306B7299BA93000ED03DE /* String.swift */; };
+		F5ACD897299BBA65008FA4D0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ACD896299BBA65008FA4D0 /* SettingsViewController.swift */; };
+		F5ACD89A299BC26D008FA4D0 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ACD899299BC26D008FA4D0 /* SettingsModel.swift */; };
+		F5ACD89D299BC4F4008FA4D0 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ACD89C299BC4F4008FA4D0 /* SettingsViewCell.swift */; };
 		F5DCCF5F297FF77600AAF3B8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCCF5E297FF77600AAF3B8 /* TabBarController.swift */; };
 		F5E5754C297EBA3400F7A5D9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E5754B297EBA3400F7A5D9 /* SearchViewController.swift */; };
 		F5E5754E297EBA6400F7A5D9 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E5754D297EBA6400F7A5D9 /* BookmarkViewController.swift */; };
@@ -37,6 +42,11 @@
 		F573C65E29805034005B4471 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F573C66029817B7F005B4471 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		F590820D299A588900CC9980 /* ImageStore+UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageStore+UIImageExtension.swift"; sourceTree = "<group>"; };
+		F5A306B2299B981400ED03DE /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		F5A306B7299BA93000ED03DE /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		F5ACD896299BBA65008FA4D0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F5ACD899299BC26D008FA4D0 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		F5ACD89C299BC4F4008FA4D0 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 		F5DCCF5E297FF77600AAF3B8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F5E5754B297EBA3400F7A5D9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F5E5754D297EBA6400F7A5D9 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
@@ -72,13 +82,16 @@
 		F52B85D7296EAD91000E93E4 /* NewsBox */ = {
 			isa = PBXGroup;
 			children = (
-				F590820C299A582700CC9980 /* ImageStore+UIImageExtension */,
-				F5A53CA9298C2DA000DAC567 /* BookmarkViewController */,
-				F5A53CA8298C2D8100DAC567 /* SearchViewController */,
+				F5A306B4299BA29F00ED03DE /* Extensions */,
+				F5A306B1299B97D300ED03DE /* AuthorizationViewController */,
+				F5C9A843298A8D57003419E7 /* TabBarController */,
 				F5A53CA7298C2D7000DAC567 /* HomeViewController */,
+				F5A53CA8298C2D8100DAC567 /* SearchViewController */,
+				F5A53CA9298C2DA000DAC567 /* BookmarkViewController */,
+				F5ACD895299BBA48008FA4D0 /* SettingsViewController */,
+				F590820C299A582700CC9980 /* ImageStore+UIImageExtension */,
 				F5A53CA6298C2D5C00DAC567 /* Models */,
 				F5C9A844298A8D75003419E7 /* Delegates */,
-				F5C9A843298A8D57003419E7 /* TabBarController */,
 				F5B4BFBB29881E7C000E559B /* Cells */,
 				F573C61329802D26005B4471 /* Constants.swift */,
 				F573C65E29805034005B4471 /* NetworkManager.swift */,
@@ -97,9 +110,26 @@
 			path = "ImageStore+UIImageExtension";
 			sourceTree = "<group>";
 		};
+		F5A306B1299B97D300ED03DE /* AuthorizationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F5A306B2299B981400ED03DE /* AuthorizationViewController.swift */,
+			);
+			path = AuthorizationViewController;
+			sourceTree = "<group>";
+		};
+		F5A306B4299BA29F00ED03DE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F5A306B7299BA93000ED03DE /* String.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F5A53CA6298C2D5C00DAC567 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F5ACD898299BC25E008FA4D0 /* SettingsModel */,
 				F5BF16F529914EC80030D9EC /* NewsApiStruct */,
 			);
 			path = Models;
@@ -129,9 +159,34 @@
 			path = BookmarkViewController;
 			sourceTree = "<group>";
 		};
+		F5ACD895299BBA48008FA4D0 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F5ACD896299BBA65008FA4D0 /* SettingsViewController.swift */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		F5ACD898299BC25E008FA4D0 /* SettingsModel */ = {
+			isa = PBXGroup;
+			children = (
+				F5ACD899299BC26D008FA4D0 /* SettingsModel.swift */,
+			);
+			path = SettingsModel;
+			sourceTree = "<group>";
+		};
+		F5ACD89B299BC4DF008FA4D0 /* SettingsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F5ACD89C299BC4F4008FA4D0 /* SettingsViewCell.swift */,
+			);
+			path = SettingsTableViewCell;
+			sourceTree = "<group>";
+		};
 		F5B4BFBB29881E7C000E559B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F5ACD89B299BC4DF008FA4D0 /* SettingsTableViewCell */,
 				F5B4BFBD29881E9F000E559B /* CategoryCollectionViewCell */,
 				F5B4BFBC29881E88000E559B /* NewsTableViewCell */,
 			);
@@ -249,15 +304,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5ACD89A299BC26D008FA4D0 /* SettingsModel.swift in Sources */,
 				F5E5754C297EBA3400F7A5D9 /* SearchViewController.swift in Sources */,
 				F52B85DD296EAD91000E93E4 /* HomeViewController.swift in Sources */,
 				F573C65F29805034005B4471 /* NetworkManager.swift in Sources */,
 				F52B85D9296EAD91000E93E4 /* AppDelegate.swift in Sources */,
+				F5A306B8299BA93000ED03DE /* String.swift in Sources */,
 				F5E5754E297EBA6400F7A5D9 /* BookmarkViewController.swift in Sources */,
+				F5A306B3299B981500ED03DE /* AuthorizationViewController.swift in Sources */,
 				F52B85ED296EB4EB000E93E4 /* NewsTableViewCell.swift in Sources */,
+				F5ACD897299BBA65008FA4D0 /* SettingsViewController.swift in Sources */,
 				F52B85EF296ECD43000E93E4 /* NewsApiStruct.swift in Sources */,
 				F590820E299A588900CC9980 /* ImageStore+UIImageExtension.swift in Sources */,
 				F52B85DB296EAD91000E93E4 /* SceneDelegate.swift in Sources */,
+				F5ACD89D299BC4F4008FA4D0 /* SettingsViewCell.swift in Sources */,
 				F573C66129817B7F005B4471 /* CategoryCollectionViewCell.swift in Sources */,
 				F5DCCF5F297FF77600AAF3B8 /* TabBarController.swift in Sources */,
 				F573C61429802D26005B4471 /* Constants.swift in Sources */,
@@ -403,6 +463,7 @@
 				DEVELOPMENT_TEAM = 3F42KXWR35;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsBox/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please allow to continue with face id";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -431,6 +492,7 @@
 				DEVELOPMENT_TEAM = 3F42KXWR35;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsBox/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please allow to continue with face id";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

@@ -108,6 +108,9 @@ final class HomeViewController: UIViewController {
     private func configureTableView() {
         view.addSubview(tableView)
         tableView.backgroundColor = whiteMainColor
+        tableView.separatorColor = lightGreyTextColor
+        tableView.separatorStyle = .singleLine
+        tableView.separatorInset = .init(top: 2, left: 0, bottom: 2, right: 0)
         tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
     }
     
@@ -170,6 +173,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.identifier, for: indexPath) as! NewsTableViewCell
         let article = articles[indexPath.row]
         cell.configure(with: article)
+        cell.selectionStyle = .none
         cell.menuButtonDidTap = {[weak self] in
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             let shareButton = UIAlertAction(title: "Share", style: .default) { share in
@@ -178,9 +182,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 self?.present(activityController, animated: true)
             }
             let boomarkButton = UIAlertAction(title: "Bookmark", style: .default)
-            let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
-            let image = UIImage(systemName: "square.and.arrow.up.fill")
-            let bookmark = UIImage(named: "bookmark_selected")
+            let cancelButton = UIAlertAction(title: "Cancel", style: .destructive)
+            let image = UIImage(named: "share")
+            let bookmark = UIImage(named: "bookmark_unselected")
             
             shareButton.setValue(UIColor.black, forKey: "titleTextColor")
             boomarkButton.setValue(UIColor.black, forKey: "titleTextColor")

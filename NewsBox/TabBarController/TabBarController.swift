@@ -26,8 +26,8 @@ final class TabBarController: UITabBarController {
     private func configureTabBarController() {
         
         self.tabBar.backgroundColor = whiteMainColor
-        self.tabBar.tintColor = .black
-        self.tabBar.unselectedItemTintColor = .black
+        self.tabBar.tintColor = mainTextBlackColor
+        self.tabBar.unselectedItemTintColor = mainTextBlackColor
         self.modalPresentationStyle = .fullScreen
         
         if let tabBarItem1 = self.tabBar.items?[0] {
@@ -42,6 +42,10 @@ final class TabBarController: UITabBarController {
             tabBarItem3.image = UIImage(named: "bookmark_unselected")
             tabBarItem3.selectedImage = UIImage(named: "bookmark_selected")
         }
+        if let tabBarItem4 = self.tabBar.items?[3] {
+            tabBarItem4.image = UIImage(named: "settings_unselected")
+            tabBarItem4.selectedImage = UIImage(named: "settings_selected")
+        }
         
     }
     
@@ -49,7 +53,9 @@ final class TabBarController: UITabBarController {
         viewControllers = [
             generateViewController(viewController: HomeViewController(), image: UIImage(named: "home_unselected")),
             generateViewController(viewController: SearchViewController(), image: UIImage(named: "search_unselected")),
-            generateViewController(viewController: BookmarkViewController(), image: UIImage(named: "bookmark_unselected"))]
+            generateViewController(viewController: BookmarkViewController(), image: UIImage(named: "bookmark_unselected")),
+            generateViewController(viewController: SettingsViewController(), image: UIImage(named: "settings_unselected"))
+        ]
     }
     
     private func generateViewController(viewController: UIViewController, image: UIImage?) -> UIViewController {

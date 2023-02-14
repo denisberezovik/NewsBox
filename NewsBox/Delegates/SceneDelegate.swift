@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         window?.frame = UIScreen.main.bounds
-        let initVc = TabBarController()
+        let initVc = AuthorizationViewController()
         self.window?.rootViewController = initVc
         self.window?.makeKeyAndVisible()
     }

@@ -50,7 +50,6 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
     
     func configureCell(category: String) {
         self.categoryLabel.text = category
-        
     }
     
 }

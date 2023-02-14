@@ -53,6 +53,7 @@ final class SearchViewController: UIViewController {
         searchBar.searchBar.showsCancelButton = false
         searchBar.searchResultsUpdater = self
         searchBar.searchBar.searchTextField.clearButtonMode = .whileEditing
+        searchBar.searchBar.searchTextField.backgroundColor = searchBarBackgroundColor
     }
     
     private func configureTableView() {
@@ -88,6 +89,11 @@ final class SearchViewController: UIViewController {
             }
         })
         print(text)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        articles.removeAll()
+        tableView.reloadData()
     }
 }
 

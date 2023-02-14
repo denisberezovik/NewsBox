@@ -11,7 +11,7 @@ final class NetworkManager {
     
     static let shared = NetworkManager()
     
-    let apiKey = "f1da7c727eaa478893ae7a6b6b02e26b"
+    let apiKey = "0d51d68a82fc48ad8c8f9b850dd3d55e"
     
     //MARK: - Function to load news data
     

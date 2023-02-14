@@ -31,7 +31,7 @@ extension UIImageView {
                     setImage(image: image)
                 }
             } else {
-                setImage(image: nil)
+                setImage(image: UIImage(named: "no_image"))
             }
         }
     }
