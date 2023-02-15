@@ -116,7 +116,19 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 let activityController = UIActivityViewController(activityItems: items, applicationActivities: nil)
                 self?.present(activityController, animated: true)
             }
-            let boomarkButton = UIAlertAction(title: "Bookmark", style: .default)
+            let boomarkButton = UIAlertAction(title: "Bookmark", style: .default) { bookmark in
+                
+                let context = CoreDataService.context
+                context.perform {
+                    let newsArticle = NewsArticle(context: context)
+                    newsArticle.title = article.title
+                    newsArticle.articleDescription = article.articleDescription
+                    newsArticle.source = article.source?.name
+                    newsArticle.urlToImage = article.urlToImage
+                    newsArticle.url = article.url
+                    CoreDataService.saveContext()
+                }
+            }
             let cancelButton = UIAlertAction(title: "Cancel", style: .destructive)
             let image = UIImage(named: "share")
             let bookmark = UIImage(named: "bookmark_unselected")

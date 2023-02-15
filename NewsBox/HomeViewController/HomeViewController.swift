@@ -108,8 +108,6 @@ final class HomeViewController: UIViewController {
     private func configureTableView() {
         view.addSubview(tableView)
         tableView.backgroundColor = whiteMainColor
-        tableView.separatorColor = mainTextBlackColor
-        tableView.separatorStyle = .singleLine
         tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
     }
     
@@ -189,6 +187,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                     newsArticle.articleDescription = article.articleDescription
                     newsArticle.source = article.source?.name
                     newsArticle.urlToImage = article.urlToImage
+                    newsArticle.url = article.url
                     CoreDataService.saveContext()
                 }
             }

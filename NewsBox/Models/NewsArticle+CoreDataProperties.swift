@@ -2,7 +2,7 @@
 //  NewsArticle+CoreDataProperties.swift
 //  NewsBox
 //
-//  Created by REEMOTTO on 15.02.23.
+//  Created by REEMOTTO on 16.02.23.
 //
 //
 
@@ -16,10 +16,11 @@ extension NewsArticle {
         return NSFetchRequest<NewsArticle>(entityName: "NewsArticle")
     }
 
-    @NSManaged public var title: String?
     @NSManaged public var articleDescription: String?
-    @NSManaged public var urlToImage: String?
     @NSManaged public var source: String?
+    @NSManaged public var title: String?
+    @NSManaged public var urlToImage: String?
+    @NSManaged public var url: String?
 
 }
 
