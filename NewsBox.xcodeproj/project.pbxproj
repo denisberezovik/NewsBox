@@ -23,6 +23,11 @@
 		F5ACD897299BBA65008FA4D0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ACD896299BBA65008FA4D0 /* SettingsViewController.swift */; };
 		F5ACD89A299BC26D008FA4D0 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ACD899299BC26D008FA4D0 /* SettingsModel.swift */; };
 		F5ACD89D299BC4F4008FA4D0 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ACD89C299BC4F4008FA4D0 /* SettingsViewCell.swift */; };
+		F5ACD8A0299BC699008FA4D0 /* ConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ACD89F299BC699008FA4D0 /* ConditionViewController.swift */; };
+		F5B11036299D030000D88CDA /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B11035299D030000D88CDA /* CoreDataService.swift */; };
+		F5B11039299D034300D88CDA /* NewsArticle+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B11037299D034300D88CDA /* NewsArticle+CoreDataClass.swift */; };
+		F5B1103A299D034300D88CDA /* NewsArticle+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B11038299D034300D88CDA /* NewsArticle+CoreDataProperties.swift */; };
+		F5B1103C299D08FA00D88CDA /* NewsArticleCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5B11032299D01DE00D88CDA /* NewsArticleCoreData.xcdatamodeld */; };
 		F5DCCF5F297FF77600AAF3B8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCCF5E297FF77600AAF3B8 /* TabBarController.swift */; };
 		F5E5754C297EBA3400F7A5D9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E5754B297EBA3400F7A5D9 /* SearchViewController.swift */; };
 		F5E5754E297EBA6400F7A5D9 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E5754D297EBA6400F7A5D9 /* BookmarkViewController.swift */; };
@@ -47,6 +52,11 @@
 		F5ACD896299BBA65008FA4D0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F5ACD899299BC26D008FA4D0 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		F5ACD89C299BC4F4008FA4D0 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
+		F5ACD89F299BC699008FA4D0 /* ConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionViewController.swift; sourceTree = "<group>"; };
+		F5B11033299D01DE00D88CDA /* NewsArticleCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsArticleCoreData.xcdatamodel; sourceTree = "<group>"; };
+		F5B11035299D030000D88CDA /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		F5B11037299D034300D88CDA /* NewsArticle+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsArticle+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F5B11038299D034300D88CDA /* NewsArticle+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsArticle+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F5DCCF5E297FF77600AAF3B8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F5E5754B297EBA3400F7A5D9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F5E5754D297EBA6400F7A5D9 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +92,8 @@
 		F52B85D7296EAD91000E93E4 /* NewsBox */ = {
 			isa = PBXGroup;
 			children = (
+				F5B11026299CFA3000D88CDA /* Services */,
+				F5ACD89E299BC677008FA4D0 /* Terms&ConditionViewController */,
 				F5A306B4299BA29F00ED03DE /* Extensions */,
 				F5A306B1299B97D300ED03DE /* AuthorizationViewController */,
 				F5C9A843298A8D57003419E7 /* TabBarController */,
@@ -94,10 +106,10 @@
 				F5C9A844298A8D75003419E7 /* Delegates */,
 				F5B4BFBB29881E7C000E559B /* Cells */,
 				F573C61329802D26005B4471 /* Constants.swift */,
-				F573C65E29805034005B4471 /* NetworkManager.swift */,
 				F52B85E1296EAD95000E93E4 /* Assets.xcassets */,
 				F52B85E3296EAD95000E93E4 /* LaunchScreen.storyboard */,
 				F52B85E6296EAD95000E93E4 /* Info.plist */,
+				F5B11032299D01DE00D88CDA /* NewsArticleCoreData.xcdatamodeld */,
 			);
 			path = NewsBox;
 			sourceTree = "<group>";
@@ -129,6 +141,8 @@
 		F5A53CA6298C2D5C00DAC567 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F5B11037299D034300D88CDA /* NewsArticle+CoreDataClass.swift */,
+				F5B11038299D034300D88CDA /* NewsArticle+CoreDataProperties.swift */,
 				F5ACD898299BC25E008FA4D0 /* SettingsModel */,
 				F5BF16F529914EC80030D9EC /* NewsApiStruct */,
 			);
@@ -181,6 +195,23 @@
 				F5ACD89C299BC4F4008FA4D0 /* SettingsViewCell.swift */,
 			);
 			path = SettingsTableViewCell;
+			sourceTree = "<group>";
+		};
+		F5ACD89E299BC677008FA4D0 /* Terms&ConditionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F5ACD89F299BC699008FA4D0 /* ConditionViewController.swift */,
+			);
+			path = "Terms&ConditionViewController";
+			sourceTree = "<group>";
+		};
+		F5B11026299CFA3000D88CDA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F573C65E29805034005B4471 /* NetworkManager.swift */,
+				F5B11035299D030000D88CDA /* CoreDataService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		F5B4BFBB29881E7C000E559B /* Cells */ = {
@@ -304,7 +335,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5B1103C299D08FA00D88CDA /* NewsArticleCoreData.xcdatamodeld in Sources */,
 				F5ACD89A299BC26D008FA4D0 /* SettingsModel.swift in Sources */,
+				F5B1103A299D034300D88CDA /* NewsArticle+CoreDataProperties.swift in Sources */,
 				F5E5754C297EBA3400F7A5D9 /* SearchViewController.swift in Sources */,
 				F52B85DD296EAD91000E93E4 /* HomeViewController.swift in Sources */,
 				F573C65F29805034005B4471 /* NetworkManager.swift in Sources */,
@@ -313,7 +346,9 @@
 				F5E5754E297EBA6400F7A5D9 /* BookmarkViewController.swift in Sources */,
 				F5A306B3299B981500ED03DE /* AuthorizationViewController.swift in Sources */,
 				F52B85ED296EB4EB000E93E4 /* NewsTableViewCell.swift in Sources */,
+				F5ACD8A0299BC699008FA4D0 /* ConditionViewController.swift in Sources */,
 				F5ACD897299BBA65008FA4D0 /* SettingsViewController.swift in Sources */,
+				F5B11036299D030000D88CDA /* CoreDataService.swift in Sources */,
 				F52B85EF296ECD43000E93E4 /* NewsApiStruct.swift in Sources */,
 				F590820E299A588900CC9980 /* ImageStore+UIImageExtension.swift in Sources */,
 				F52B85DB296EAD91000E93E4 /* SceneDelegate.swift in Sources */,
@@ -321,6 +356,7 @@
 				F573C66129817B7F005B4471 /* CategoryCollectionViewCell.swift in Sources */,
 				F5DCCF5F297FF77600AAF3B8 /* TabBarController.swift in Sources */,
 				F573C61429802D26005B4471 /* Constants.swift in Sources */,
+				F5B11039299D034300D88CDA /* NewsArticle+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +499,7 @@
 				DEVELOPMENT_TEAM = 3F42KXWR35;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsBox/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please allow to continue with face id";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -492,6 +529,7 @@
 				DEVELOPMENT_TEAM = 3F42KXWR35;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsBox/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please allow to continue with face id";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -532,6 +570,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F5B11032299D01DE00D88CDA /* NewsArticleCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F5B11033299D01DE00D88CDA /* NewsArticleCoreData.xcdatamodel */,
+			);
+			currentVersion = F5B11033299D01DE00D88CDA /* NewsArticleCoreData.xcdatamodel */;
+			path = NewsArticleCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F52B85CD296EAD90000E93E4 /* Project object */;
 }

@@ -108,9 +108,8 @@ final class HomeViewController: UIViewController {
     private func configureTableView() {
         view.addSubview(tableView)
         tableView.backgroundColor = whiteMainColor
-        tableView.separatorColor = lightGreyTextColor
+        tableView.separatorColor = mainTextBlackColor
         tableView.separatorStyle = .singleLine
-        tableView.separatorInset = .init(top: 2, left: 0, bottom: 2, right: 0)
         tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
     }
     
@@ -181,7 +180,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 let activityController = UIActivityViewController(activityItems: items, applicationActivities: nil)
                 self?.present(activityController, animated: true)
             }
-            let boomarkButton = UIAlertAction(title: "Bookmark", style: .default)
+            let boomarkButton = UIAlertAction(title: "Bookmark", style: .default) { bookmark in
+                
+                let context = CoreDataService.context
+                context.perform {
+                    let newsArticle = NewsArticle(context: context)
+                    newsArticle.title = article.title
+                    newsArticle.articleDescription = article.articleDescription
+                    newsArticle.source = article.source?.name
+                    newsArticle.urlToImage = article.urlToImage
+                    CoreDataService.saveContext()
+                }
+            }
             let cancelButton = UIAlertAction(title: "Cancel", style: .destructive)
             let image = UIImage(named: "share")
             let bookmark = UIImage(named: "bookmark_unselected")
@@ -224,6 +234,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         tableView.stopLoading()
     }
+    
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource

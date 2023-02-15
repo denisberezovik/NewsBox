@@ -66,6 +66,20 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if tableArray[indexPath.row].title == "Terms & Conditions" {
+            let conditionViewController = ConditionViewController()
+            self.tableView.reloadData()
+            self.navigationController?.pushViewController(conditionViewController, animated: true)
+            
+        } else if tableArray[indexPath.row].title == "About" {
+            let conditionViewController = ConditionViewController()
+            self.tableView.reloadData()
+            self.navigationController?.pushViewController(conditionViewController, animated: true)
+        }
+    }
 }
         
         extension UIView {

@@ -20,9 +20,8 @@ extension SettingsModel {
         return [
             .init(title: "Account", icon: UIImage(named: "account")),
             .init(title: "Push Notifications", icon: UIImage(named: "notification")),
-            .init(title: "Push Notifications", icon: UIImage(named: "notification")),
-            .init(title: "Terms & Conditions", icon: UIImage(named: "about")),
-            .init(title: "About", icon: UIImage(named: "about")),
+            .init(title: "Terms & Conditions", icon: UIImage(named: "about"), controller: ConditionViewController()),
+            .init(title: "About", icon: UIImage(named: "about"), controller: ConditionViewController()),
             .init(title: "Logout", icon: UIImage(named: "logout")),
             ]
     }

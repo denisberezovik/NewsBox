@@ -108,6 +108,31 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.identifier, for: indexPath) as! NewsTableViewCell
         let article = articles[indexPath.row]
         cell.configure(with: article)
+        cell.selectionStyle = .none
+        cell.menuButtonDidTap = {[weak self] in
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let shareButton = UIAlertAction(title: "Share", style: .default) { share in
+                let items: [Any] = ["Read this news immediately!", URL(string: article.self.url ?? "") as Any]
+                let activityController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+                self?.present(activityController, animated: true)
+            }
+            let boomarkButton = UIAlertAction(title: "Bookmark", style: .default)
+            let cancelButton = UIAlertAction(title: "Cancel", style: .destructive)
+            let image = UIImage(named: "share")
+            let bookmark = UIImage(named: "bookmark_unselected")
+            
+            shareButton.setValue(UIColor.black, forKey: "titleTextColor")
+            boomarkButton.setValue(UIColor.black, forKey: "titleTextColor")
+            cancelButton.setValue(UIColor.black, forKey: "titleTextColor")
+            shareButton.setValue(image?.withRenderingMode(.alwaysOriginal), forKey: "image")
+            boomarkButton.setValue(bookmark?.withRenderingMode(.alwaysOriginal), forKey: "image")
+            
+            alert.addAction(shareButton)
+            alert.addAction(boomarkButton)
+            alert.addAction(cancelButton)
+            self?.present(alert, animated: true)
+            
+        }
         
         return cell
     }

@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - NewsAPIStruct
 
-struct NewsAPIStruct: Codable {
+struct NewsAPIStruct: Decodable {
     let status: String?
     let totalResults: Int?
     var articles: [Article]?
@@ -17,7 +17,7 @@ struct NewsAPIStruct: Codable {
 
 // MARK: - Article
 
-struct Article: Codable {
+struct Article: Decodable {
     let source: Source?
     let author: String?
     let title: String?
@@ -38,7 +38,7 @@ struct Article: Codable {
 }
 
 // MARK: - Source
-struct Source: Codable {
+struct Source: Decodable {
     let id: String?
     let name: String?
 }
