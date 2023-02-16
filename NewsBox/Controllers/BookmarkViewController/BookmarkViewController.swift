@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import SafariServices
 
 final class BookmarkViewController: UIViewController {
     
@@ -53,6 +54,7 @@ final class BookmarkViewController: UIViewController {
     private func configureTableView() {
         view.addSubview(tableView)
         tableView.backgroundColor = whiteMainColor
+        tableView.separatorStyle = .none
         tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
     }
     
@@ -80,7 +82,6 @@ final class BookmarkViewController: UIViewController {
         let request = NewsArticle.fetchRequest()
         let newsArticles = try? CoreDataService.context.fetch(request)
         articles = newsArticles ?? []
-//        articles.append(article)
     }
     
 }
@@ -121,7 +122,7 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
             }
             let cancelButton = UIAlertAction(title: "Cancel", style: .destructive)
             let image = UIImage(named: "share")
-            let bookmark = UIImage(named: "bookmark_unselected")
+            let bookmark = UIImage(named: "bookmark_selected")
             
             shareButton.setValue(UIColor.black, forKey: "titleTextColor")
             boomarkButton.setValue(UIColor.black, forKey: "titleTextColor")
@@ -140,7 +141,18 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
+        return 150.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let article = articles[indexPath.row]
+        
+        guard let url = URL(string: article.url ?? "") else { return }
+        
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
     }
     
 }

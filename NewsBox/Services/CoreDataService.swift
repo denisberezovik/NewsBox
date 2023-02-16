@@ -35,9 +35,4 @@ final class CoreDataService {
             }
         }
     }
-    
-//    static func deleteContext () {
-//        
-//    }
-    
 }

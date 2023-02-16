@@ -92,16 +92,9 @@
 		F52B85D7296EAD91000E93E4 /* NewsBox */ = {
 			isa = PBXGroup;
 			children = (
+				F5300400299E4D9C002BFAB1 /* Controllers */,
 				F5B11026299CFA3000D88CDA /* Services */,
-				F5ACD89E299BC677008FA4D0 /* Terms&ConditionViewController */,
 				F5A306B4299BA29F00ED03DE /* Extensions */,
-				F5A306B1299B97D300ED03DE /* AuthorizationViewController */,
-				F5C9A843298A8D57003419E7 /* TabBarController */,
-				F5A53CA7298C2D7000DAC567 /* HomeViewController */,
-				F5A53CA8298C2D8100DAC567 /* SearchViewController */,
-				F5A53CA9298C2DA000DAC567 /* BookmarkViewController */,
-				F5ACD895299BBA48008FA4D0 /* SettingsViewController */,
-				F590820C299A582700CC9980 /* ImageStore+UIImageExtension */,
 				F5A53CA6298C2D5C00DAC567 /* Models */,
 				F5C9A844298A8D75003419E7 /* Delegates */,
 				F5B4BFBB29881E7C000E559B /* Cells */,
@@ -112,6 +105,20 @@
 				F5B11032299D01DE00D88CDA /* NewsArticleCoreData.xcdatamodeld */,
 			);
 			path = NewsBox;
+			sourceTree = "<group>";
+		};
+		F5300400299E4D9C002BFAB1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F5A306B1299B97D300ED03DE /* AuthorizationViewController */,
+				F5C9A843298A8D57003419E7 /* TabBarController */,
+				F5A53CA7298C2D7000DAC567 /* HomeViewController */,
+				F5A53CA8298C2D8100DAC567 /* SearchViewController */,
+				F5A53CA9298C2DA000DAC567 /* BookmarkViewController */,
+				F5ACD895299BBA48008FA4D0 /* SettingsViewController */,
+				F5ACD89E299BC677008FA4D0 /* Terms&ConditionViewController */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F590820C299A582700CC9980 /* ImageStore+UIImageExtension */ = {
@@ -133,6 +140,7 @@
 		F5A306B4299BA29F00ED03DE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F590820C299A582700CC9980 /* ImageStore+UIImageExtension */,
 				F5A306B7299BA93000ED03DE /* String.swift */,
 			);
 			path = Extensions;

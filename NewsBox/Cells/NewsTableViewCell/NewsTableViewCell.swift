@@ -110,16 +110,19 @@ class NewsTableViewCell: UITableViewCell {
         newsTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
         newsTitleLabel.leadingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: 10).isActive = true
         newsTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
+        newsTitleLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.topAnchor.constraint(equalTo: newsTitleLabel.bottomAnchor, constant: 5).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: 10).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
+        descriptionLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         sourceLabel.translatesAutoresizingMaskIntoConstraints = false
         sourceLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 5).isActive = true
         sourceLabel.leadingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: 10).isActive = true
         sourceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -5).isActive = true
+        sourceLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
         
         menuButton.translatesAutoresizingMaskIntoConstraints = false
         menuButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 5).isActive = true

@@ -22,6 +22,7 @@ final class AuthorizationViewController: UIViewController {
     private let passwordTextField = UITextField()
     private let visabilityButton = UIButton()
     private let signInButton = UIButton()
+    private let sloganLabel = UILabel()
     
     lazy var safeArea = view.safeAreaLayoutGuide
     
@@ -66,6 +67,7 @@ final class AuthorizationViewController: UIViewController {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(signInButton)
+        view.addSubview(sloganLabel)
     }
     
     private func configureSubviews() {
@@ -103,6 +105,14 @@ final class AuthorizationViewController: UIViewController {
         signInButton.backgroundColor = .black
         signInButton.layer.cornerRadius = 15
         signInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
+        
+        sloganLabel.text = "Make your dailies informative ©"
+        sloganLabel.textColor = mainTextBlackColor
+        sloganLabel.textAlignment = .center
+        sloganLabel.font = .boldSystemFont(ofSize: 18.0)
+        sloganLabel.numberOfLines = 0
+        sloganLabel.clipsToBounds = true
+        
     }
     
     private func layoutSubviews() {
@@ -133,6 +143,13 @@ final class AuthorizationViewController: UIViewController {
         signInButton.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
         signInButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor,constant: 120.0).isActive = true
         signInButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -120.0).isActive = true
+        
+        sloganLabel.translatesAutoresizingMaskIntoConstraints = false
+        sloganLabel.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -20.0).isActive = true
+        sloganLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor,constant: 20.0).isActive = true
+        sloganLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20.0).isActive = true
+        sloganLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
     }
     // MARK: - Handlers
     

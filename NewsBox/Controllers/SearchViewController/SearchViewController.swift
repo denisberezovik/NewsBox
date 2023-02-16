@@ -59,6 +59,7 @@ final class SearchViewController: UIViewController {
     private func configureTableView() {
         view.addSubview(tableView)
         tableView.backgroundColor = whiteMainColor
+        tableView.separatorStyle = .none
         tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
         
     }
@@ -150,7 +151,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
+        return 150.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

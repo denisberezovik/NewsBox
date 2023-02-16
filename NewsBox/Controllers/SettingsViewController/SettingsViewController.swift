@@ -34,6 +34,7 @@ final class SettingsViewController: UIViewController {
         view.addSubview(tableView)
         setTableViewDelegates()
         tableView.rowHeight = 40
+        tableView.backgroundColor = whiteMainColor
         tableView.register(SettingsViewCell.self, forCellReuseIdentifier: SettingsViewCell.identifier)
         tableView.pin(to:view)
     }
@@ -78,6 +79,11 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             let conditionViewController = ConditionViewController()
             self.tableView.reloadData()
             self.navigationController?.pushViewController(conditionViewController, animated: true)
+        } else if tableArray[indexPath.row].title == "Logout" {
+            let authViewController = AuthorizationViewController()
+            authViewController.defaults.removeObject(forKey: "email")
+            authViewController.defaults.removeObject(forKey: "password")
+            self.navigationController?.popToRootViewController(animated: true)
         }
     }
 }
