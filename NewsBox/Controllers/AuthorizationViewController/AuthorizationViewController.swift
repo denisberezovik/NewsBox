@@ -227,7 +227,7 @@ final class AuthorizationViewController: UIViewController {
             }
         } else {
             let alert = UIAlertController(title: "Unavailable", message: "You cant use this feature", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dissmis", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
             present(alert, animated: true)
         }
     }

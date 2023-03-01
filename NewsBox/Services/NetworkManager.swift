@@ -11,7 +11,7 @@ final class NetworkManager {
     
     static let shared = NetworkManager()
     
-    let apiKey = "0d51d68a82fc48ad8c8f9b850dd3d55e"
+    let apiKey = "284091c4eb104a7d879014aa7f6d4a32"
     
     //MARK: - Function to load news data
     
@@ -28,8 +28,10 @@ final class NetworkManager {
             
             if let error = error {
                 print(error.localizedDescription)
-            } else if let data = data {
+            } else if let data = data, let response = response {
                 let news = try? JSONDecoder().decode(NewsAPIStruct.self, from: data)
+                print(news)
+                print(response)
                 DispatchQueue.main.async {
                     completion(news)
                 }

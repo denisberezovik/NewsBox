@@ -83,7 +83,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             let authViewController = AuthorizationViewController()
             authViewController.defaults.removeObject(forKey: "email")
             authViewController.defaults.removeObject(forKey: "password")
-            self.navigationController?.popToRootViewController(animated: true)
+            self.navigationController?.setViewControllers([authViewController], animated: true)
         }
     }
 }
