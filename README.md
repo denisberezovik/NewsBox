@@ -3,7 +3,7 @@
 About: NewsBox analyses millions of articles every day to deliver you access to the top trending news stories influencing the
 world right now.
 
-***This application features a news display based on the selected category, a news search, and the saving of news to Bookmarks via CoreData. Also, there is news feed pagination, but unfortunately due to the free api the number of pages is limited.***
+***The application implements FaceID or TouchID authorization and stores this data in userDefaults. There are also news categories that display news depending on the selected category. The app has a news search, as well as the ability to save (and delete) news to bookmarks using CoreData.***
 
 **HomeScreen with selected cathegory "technology"**
 
