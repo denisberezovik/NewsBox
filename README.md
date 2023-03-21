@@ -3,6 +3,8 @@
 About: NewsBox analyses millions of articles every day to deliver you access to the top trending news stories influencing the
 world right now.
 
+***This application features a news display based on the selected category, a news search, and the saving of news to Bookmarks via CoreData. Also, there is news feed pagination, but unfortunately due to the free api the number of pages is limited.***
+
 **HomeScreen with selected cathegory "technology"**
 
 <img src="https://user-images.githubusercontent.com/92160205/226643632-dece31e8-389d-4f42-8ee6-627ddc02bcdb.jpg" width=30% height=30%>
